@@ -60,12 +60,6 @@ html{
   color: white; /* ensures all navbar links are white */
 }
 
-
-body {
-  background-color: #000000; /* pure black */
-  color: white; /* ensures text is readable */
-}
-
 .glitchText {
     font-size: 2.25rem;       /* bigger size */
     font-weight: bold;
@@ -78,6 +72,23 @@ body {
 /* Make the offcanvas background black */
 #offcanvas-nav .uk-offcanvas-bar {
     background-color: black;
+}
+
+/* Make the whole card clickable but remove link underlines */
+a.card-link {
+    text-decoration: none; /* remove underline */
+    color: inherit;        /* keep text color the same as inside the card */
+    display: block;        /* make sure the card respects width/height */
+}
+
+a.card-link:hover {
+    text-decoration: none; /* prevent underline on hover */
+}
+
+
+body {
+  background-color: #000000; /* pure black */
+  color: white; /* ensures text is readable */
 }
 
 h1 {
