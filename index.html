@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/uikit.js"></script>
     <script src="js/uikit-icons.js"></script> 
-    <title>Ruben's Website</title>
+    <title>Ruben</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon.png">
+
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -34,7 +36,7 @@
 <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-hidden@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     
     <div class="uk-navbar-left">
-        <a href="" id="glitchText" class="uk-navbar-item uk-logo uk-light"> Ruben </a>
+        <a href="#" id="glitchText" class="uk-navbar-item uk-logo uk-light"> Ruben </a>
     </div>
     <div class="uk-navbar-right">
 
@@ -46,18 +48,14 @@
     </div>
 </nav>
 
-<!-- Change This -->
 <div id="offcanvas-nav" uk-offcanvas="overlay: true">
     <div class="uk-offcanvas-bar uk-flex uk-flex-column">
         <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <li class="uk-active"><a href="#" uk-scroll>Home</a></li>
-            <li class="uk-active"><a href="#about" uk-scroll>About</a></li>
+            <li class="uk-active"><a href="#about" uk-scroll>About Me</a></li>
             <li class="uk-active"><a href="#projects" uk-scroll>Projects</a></li>
-            <li class="uk-active"><a href="mailto:rubenag025@gmail.com">Contact</a></li> <!--- change to ur email-->
 
         </ul>
-
-
     </div>
 </div>
 
@@ -101,29 +99,103 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <!-- Home -->
-<section class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top">
-    <h1 class="uk-margin-xlarge-left uk-light uk-text-left uk-margin-xlarge-right"> Current: Software engineer, technology consultant, in-training sailor/boat hand, and bike mechanic <br> <br> Former: Computer science teacher, horse wrangler/ranch hand/cowboy, car mechanic, concrete finisher/laborer</h1>
 
+<section class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top">
+  <h1 class="uk-margin-xlarge-left uk-light uk-text-left uk-margin-xlarge-right spotlight-text">
+    Current: Software engineer, technology consultant, <br> in-training sailor/boat hand, and bike mechanic
+    <br><br>
+    Former: Computer science teacher, <br> horse wrangler/ranch hand/cowboy, <br> car mechanic, and concrete finisher/laborer
+  </h1>
+  <br>
+  <span class="uk-margin-xlarge-left paid-text" style="color:#ccc; font-size:0.7rem; display:block;">
+    (criteria: paid and I felt the work was impactful)
+  </span>
 </section>
 
+<style>
+.spotlight-text {
+  color: white;
+  filter: blur(4px);
+  transition: filter 0.3s ease;
+  user-select: none;
+}
+
+.paid-text {
+  filter: blur(3px); /* independent blur */
+  transition: filter 0.3s ease;
+  user-select: none;
+}
+</style>
+
+<script>
+const h1Text = document.querySelector('.spotlight-text');
+const paidText = document.querySelector('.paid-text');
+
+// H1 logic
+h1Text.addEventListener('mouseenter', () => {
+  h1Text.style.filter = 'blur(0px)';
+
+  let blur = 4;
+  const interval = setInterval(() => {
+    blur -= 0.05;
+    if (blur <= 0) {
+      blur = 0;
+      clearInterval(interval);
+    }
+    h1Text.style.filter = `blur(${blur}px)`;
+  }, 20);
+
+  setTimeout(() => {
+    let blurBack = 0;
+    const blurInterval = setInterval(() => {
+      blurBack += 0.05;
+      if (blurBack >= 4) {
+        blurBack = 4;
+        clearInterval(blurInterval);
+      }
+      h1Text.style.filter = `blur(${blurBack}px)`;
+    }, 20);
+  }, 10000);
+});
+
+// Paid text logic (independent)
+paidText.addEventListener('mouseenter', () => {
+  paidText.style.filter = 'blur(0px)';
+
+  let blur = 3;
+  const interval = setInterval(() => {
+    blur -= 0.05;
+    if (blur <= 0) {
+      blur = 0;
+      clearInterval(interval);
+    }
+    paidText.style.filter = `blur(${blur}px)`;
+  }, 20);
+
+  setTimeout(() => {
+    let blurBack = 0;
+    const blurInterval = setInterval(() => {
+      blurBack += 0.05;
+      if (blurBack >= 3) {
+        blurBack = 3;
+        clearInterval(blurInterval);
+      }
+      paidText.style.filter = `blur(${blurBack}px)`;
+    }, 20);
+  }, 20000);
+});
+</script>
+
+
+
 <!-- Home Ends -->
-<br>
-<span class="uk-margin-xlarge-left" style="color:#ccc; font-size:0.7rem;">(yes paid)</span>
 <hr class="uk-margin-medium-top uk-margin-xlarge-left uk-margin-xlarge-right">
+
 <!-- About Me -->
-<section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-medium-top uk-margin-large-bottom">
+<section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-medium-top uk-margin-medium-bottom">
     <h3 class="uk-margin-xlarge-left uk-light">About Me</h3>
-    <div class="uk-margin-xlarge-left" style="display:flex; gap:12px;">
-        <a href="https://strava.app.link/zZ4Nf2jR7Wb" class="uk-light uk-button-text" target="_blank">
-            <img src="images/icons/strava.png" alt="Strava" style="width:24px; height:24px; vertical-align: middle;">
-        </a>    
-        <a href="https://open.spotify.com/user/icpg7hd9qsacc5kveylb7c8tu?si=DCLnLwr4Q9eoxlnqTtQFUA&nd=1&dlsi=26684492cab94b01" class="uk-light uk-button-text" target="_blank">
-            <img src="images/icons/spotify.png" alt="Spotify" style="width:24px; height:24px; vertical-align: middle;" >
-        </a>
-        <span style="color:#ccc; font-size:0.7rem;">&lt;&lt; closest I have to social medias</span>
-    </div>
             <p class="uk-margin-xlarge-left uk-margin-xlarge-right uk-margin-medium-top">
-                After an impromptu backpacking trip through Central America with some beloved Australians and Swedes, I returned to America with a redefined outlook on American work-life. My newfound definition and application is realized throughout various pursuits and projects here 
+                After an impromptu trip through Central America with only a 30L backpack and some beloved Australians and Swedes, I returned to America with a redefined outlook on American work-life. My newfound definition and application is realized through various pursuits and projects here 
                 <br> <br> 
         
                 <span style="font-style: italic; color: inherit;">
@@ -133,7 +205,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 <br> <br> 
                 Current Goal: After time away, I have developed a goal of what I am wanting to achieve in my career; I am now pursing that. Ask me what that is, or anything on the above</p>
              <a  href="mailto:rubenag025@gmail.com" class="uk-margin-xlarge-left uk-margin-medium-top uk-text-capitalize uk-button uk-button-secondary" uk-scroll>Ask Me Something</a>
-        </section>
+        
+    
+    <div class="uk-margin-xlarge-left uk-margin-medium-top" style="display:flex; flex-direction: column; align-items: flex-start; gap:4px;">
+        <div style="display:flex; gap:12px;">
+            <a href="https://strava.app.link/zZ4Nf2jR7Wb" class="uk-light uk-button-text" target="_blank">
+                <img src="images/icons/strava.png" alt="Strava" style="width:24px; height:24px; vertical-align: middle;">
+            </a>    
+            <a href="https://open.spotify.com/user/icpg7hd9qsacc5kveylb7c8tu?si=DCLnLwr4Q9eoxlnqTtQFUA&nd=1&dlsi=26684492cab94b01" class="uk-light uk-button-text" target="_blank">
+                <img src="images/icons/spotify.png" alt="Spotify" style="width:24px; height:24px; vertical-align: middle;">
+            </a>
+        </div>
+        <span style="color:#ccc; font-size:0.7rem; margin-top:10px; padding-left:22.5px;">^^ closest I have to social medias</span>
+    </div>
+</section>
 <!-- About Me Ends -->
 
 <!-- Projects Section -->
@@ -212,6 +297,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
 </div>
+<!-- Footer Credit -->
+<footer class="uk-margin-xlarge-left footer-credit" style="margin-bottom: 20px;">
+  <p style="color: #888888; font-size: 0.8rem; margin: 0;">© 2025 Ruben</p>
+</footer>
 
 </body>
 </html>
