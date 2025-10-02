@@ -61,7 +61,7 @@ body {
 }
 
 #glitchText {
-    font-size: 2.5rem;       /* bigger size */
+    font-size: 2.75rem;       /* bigger size */
     font-weight: bold;
     color: white;             /* white text for black background */
     font-family: inherit;     /* match the rest of your page */
