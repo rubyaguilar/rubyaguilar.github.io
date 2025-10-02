@@ -46,6 +46,12 @@ html{
   box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1), 0 4px 8px rgba(255, 255, 255, 0.05);
   border-color: #555; /* subtle highlight on border */
 }
+
+.uk-logo {
+  font-size: 2.25rem !important; /* pick your size */
+  font-weight: bold;
+}
+
 .uk-navbar-container {
   background-color: #000 !important; /* black navbar */
   color: white; /* text color */
