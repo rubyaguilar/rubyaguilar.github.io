@@ -17,7 +17,7 @@
     <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-visible@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     
     <div class="uk-navbar-left">
-        <a href="#" id="glitchText" class="uk-navbar-item uk-logo">Ruben</a>
+        <a href="#" class="glitchText uk-navbar-item uk-logo">Ruben</a>
     </div>
     <div class="uk-navbar-right">
 
@@ -36,7 +36,7 @@
 <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-hidden@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     
     <div class="uk-navbar-left">
-        <a href="#" id="glitchText" class="uk-navbar-item uk-logo uk-light"> Ruben </a>
+        <a href="#" class="glitchText uk-navbar-item uk-logo uk-light">Ruben</a>
     </div>
     <div class="uk-navbar-right">
 
@@ -64,37 +64,37 @@
 <!-- Glitch Effect -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    const textEl = document.getElementById("glitchText");
-    const text = textEl.innerText;
+    const glitchElements = document.querySelectorAll(".glitchText");
     const chars = "!<>-_\\/[]{}—=+*^?#";
 
-    function glitchOnce() {
-        const textArr = text.split("");
-        // choose 1 or 2 random indices to glitch
-        const glitchCount = Math.floor(Math.random() * 2) + 1;
-        const indices = [];
-        while (indices.length < glitchCount) {
-            const idx = Math.floor(Math.random() * textArr.length);
-            if (!indices.includes(idx)) indices.push(idx);
+    glitchElements.forEach(el => {
+        const text = el.innerText;
+
+        function glitchOnce() {
+            const textArr = text.split("");
+            const glitchCount = Math.floor(Math.random() * 2) + 1;
+            const indices = [];
+            while (indices.length < glitchCount) {
+                const idx = Math.floor(Math.random() * textArr.length);
+                if (!indices.includes(idx)) indices.push(idx);
+            }
+
+            const scrambled = textArr.map((letter, i) =>
+                indices.includes(i) ? chars[Math.floor(Math.random() * chars.length)] : letter
+            ).join("");
+
+            el.innerText = scrambled;
+
+            setTimeout(() => {
+                el.innerText = text;
+            }, 80);
         }
 
-        // replace chosen letters with random chars
-        const scrambled = textArr.map((letter, i) => 
-            indices.includes(i) ? chars[Math.floor(Math.random() * chars.length)] : letter
-        ).join("");
-
-        textEl.innerText = scrambled;
-
-        // revert immediately after a short moment (~80ms)
-        setTimeout(() => {
-            textEl.innerText = text;
-        }, 80);
-    }
-
-    // slower, occasional trigger (~every 500ms)
-    setInterval(() => {
-        if (Math.random() < 0.3) glitchOnce(); // lower chance
-    }, 1000); // check less often
+        // Automatic glitch effect continuously
+        setInterval(() => {
+            if (Math.random() < 0.3) glitchOnce();
+        }, 1000);
+    });
 });
 </script>
 
