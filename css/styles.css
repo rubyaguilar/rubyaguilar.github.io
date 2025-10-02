@@ -75,6 +75,11 @@ body {
     transition: color 0.2s;
 }
 
+/* Make the offcanvas background black */
+#offcanvas-nav .uk-offcanvas-bar {
+    background-color: black;
+}
+
 h1 {
   font-size: 1.75rem; /* adjust to your preferred size */
 }
