@@ -14,7 +14,7 @@
 </head>
 <body>
 <!-- Navigation Bar -->
-    <nav class="uk-navbar-container uk-width-1-1" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
+    <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-visible@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     
     <div class="uk-navbar-left">
         <a href="#" class="glitchText uk-navbar-item uk-logo">Ruben</a>
@@ -131,42 +131,59 @@ document.addEventListener("DOMContentLoaded", () => {
 const h1Text = document.querySelector('.spotlight-text');
 const paidText = document.querySelector('.paid-text');
 
-function unblurWithReset(el, blurAmount, duration) {
-  // unblur immediately
-  el.style.filter = 'blur(0px)';
+// H1 logic
+h1Text.addEventListener('mouseenter', () => {
+  h1Text.style.filter = 'blur(0px)';
 
-  // animate blur away
-  let blur = blurAmount;
+  let blur = 4;
   const interval = setInterval(() => {
     blur -= 0.05;
     if (blur <= 0) {
       blur = 0;
       clearInterval(interval);
     }
-    el.style.filter = `blur(${blur}px)`;
+    h1Text.style.filter = `blur(${blur}px)`;
   }, 20);
 
-  // after duration, animate back to blurAmount
   setTimeout(() => {
     let blurBack = 0;
     const blurInterval = setInterval(() => {
       blurBack += 0.05;
-      if (blurBack >= blurAmount) {
-        blurBack = blurAmount;
+      if (blurBack >= 4) {
+        blurBack = 4;
         clearInterval(blurInterval);
       }
-      el.style.filter = `blur(${blurBack}px)`;
+      h1Text.style.filter = `blur(${blurBack}px)`;
     }, 20);
-  }, duration);
-}
+  }, 10000);
+});
 
-// H1 logic
-h1Text.addEventListener('mouseenter', () => unblurWithReset(h1Text, 4, 10000));
-h1Text.addEventListener('click', () => unblurWithReset(h1Text, 4, 10000)); // mobile tap
+// Paid text logic (independent)
+paidText.addEventListener('mouseenter', () => {
+  paidText.style.filter = 'blur(0px)';
 
-// Paid text logic
-paidText.addEventListener('mouseenter', () => unblurWithReset(paidText, 3, 20000));
-paidText.addEventListener('click', () => unblurWithReset(paidText, 3, 20000)); // mobile tap
+  let blur = 3;
+  const interval = setInterval(() => {
+    blur -= 0.05;
+    if (blur <= 0) {
+      blur = 0;
+      clearInterval(interval);
+    }
+    paidText.style.filter = `blur(${blur}px)`;
+  }, 20);
+
+  setTimeout(() => {
+    let blurBack = 0;
+    const blurInterval = setInterval(() => {
+      blurBack += 0.05;
+      if (blurBack >= 3) {
+        blurBack = 3;
+        clearInterval(blurInterval);
+      }
+      paidText.style.filter = `blur(${blurBack}px)`;
+    }, 20);
+  }, 20000);
+});
 </script>
 
 
