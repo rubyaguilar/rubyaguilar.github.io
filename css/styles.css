@@ -2,3 +2,79 @@ html{
     font-family: IBM Plex Mono;
 }
 
+/* Active projects */
+.active {
+    position: relative;
+    background-color: #1a1a1a;
+    border-radius: 6px;
+    /* stronger always-on glow */
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Hover: intensify the glow further */
+.active:hover {
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.6);
+}
+
+/* Defunct projects */
+.defunct {
+    background-color: #111; /* darker black */
+    color: #666; /* muted text */
+    opacity: 0.7; /* slightly faded */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: none !important; /* no glow */
+    border: none !important; /* no outline changes */
+}
+
+.defunct:hover {
+    transform: translateY(-5px); /* subtle rise */
+    opacity: 0.85; /* slight highlight */
+    box-shadow: none !important; /* enforce no glow */
+    border: none !important; /* enforce no outline */
+}
+
+.uk-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid #222; /* subtle dark border */
+  background-color: #111; /* slightly lighter than black for contrast */
+  color: white; /* ensures text is readable */
+}
+
+.uk-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1), 0 4px 8px rgba(255, 255, 255, 0.05);
+  border-color: #555; /* subtle highlight on border */
+}
+.uk-navbar-container {
+  background-color: #000 !important; /* black navbar */
+  color: white; /* text color */
+}
+.uk-navbar-nav a, .uk-navbar-item {
+  color: white; /* ensures all navbar links are white */
+}
+
+
+body {
+  background-color: #000000; /* pure black */
+  color: white; /* ensures text is readable */
+}
+
+#glitchText {
+    font-size: 2.5rem;       /* bigger size */
+    font-weight: bold;
+    color: white;             /* white text for black background */
+    font-family: inherit;     /* match the rest of your page */
+    letter-spacing: 1px;
+    transition: color 0.2s;
+}
+
+h1 {
+  font-size: 1.75rem; /* adjust to your preferred size */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* sets the entire page background to black */
+}

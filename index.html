@@ -7,23 +7,22 @@
     <link rel="stylesheet" href="css/uikit.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="js/uikit.js"></script>
-    <script src="js/uikit-icons.js"></script>
-
-    <title>Portfolio</title>
+    <script src="js/uikit-icons.js"></script> 
+    <title>Ruben's Website</title>
 </head>
 <body>
 <!-- Navigation Bar -->
     <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-visible@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     
     <div class="uk-navbar-left">
-        <a href="" class="uk-navbar-item uk-logo uk-light">JohnDoe.</a>
+        <a href="#" id="glitchText" class="uk-navbar-item uk-logo">Ruben</a>
     </div>
     <div class="uk-navbar-right">
 
         <ul class="uk-navbar-nav uk-light">
-            <li><a class="uk-button-text uk-text-capitalize" href="#about" uk-scroll>About</a></li>
+            <li><a class="uk-button-text uk-text-capitalize" href="#about" uk-scroll>About Me</a></li>
             <li><a class="uk-button-text uk-text-capitalize" href="#projects" uk-scroll>Projects</a></li>
-            <li><a class="uk-button-text uk-text-capitalize" href="mailto:" uk-scroll>Contact</a></li>
+
 
         </ul>
 
@@ -35,7 +34,7 @@
 <nav class="uk-navbar-container uk-margin-small-left uk-margin-small-right uk-hidden@m uk-margin-xlarge-left uk-margin-xlarge-right" uk-navbar uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
     
     <div class="uk-navbar-left">
-        <a href="" class="uk-navbar-item uk-logo uk-light">JohnDoe.</a>
+        <a href="" id="glitchText" class="uk-navbar-item uk-logo uk-light"> Ruben </a>
     </div>
     <div class="uk-navbar-right">
 
@@ -46,10 +45,10 @@
 
     </div>
 </nav>
+
 <!-- Change This -->
 <div id="offcanvas-nav" uk-offcanvas="overlay: true">
     <div class="uk-offcanvas-bar uk-flex uk-flex-column">
-
         <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
             <li class="uk-active"><a href="#" uk-scroll>Home</a></li>
             <li class="uk-active"><a href="#about" uk-scroll>About</a></li>
@@ -59,16 +58,52 @@
         </ul>
 
 
-
-
     </div>
 </div>
 
 <!-- Navigation Bar Mobile Ends -->
+
+<!-- Glitch Effect -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const textEl = document.getElementById("glitchText");
+    const text = textEl.innerText;
+    const chars = "!<>-_\\/[]{}—=+*^?#";
+
+    function glitchOnce() {
+        const textArr = text.split("");
+        // choose 1 or 2 random indices to glitch
+        const glitchCount = Math.floor(Math.random() * 2) + 1;
+        const indices = [];
+        while (indices.length < glitchCount) {
+            const idx = Math.floor(Math.random() * textArr.length);
+            if (!indices.includes(idx)) indices.push(idx);
+        }
+
+        // replace chosen letters with random chars
+        const scrambled = textArr.map((letter, i) => 
+            indices.includes(i) ? chars[Math.floor(Math.random() * chars.length)] : letter
+        ).join("");
+
+        textEl.innerText = scrambled;
+
+        // revert immediately after a short moment (~80ms)
+        setTimeout(() => {
+            textEl.innerText = text;
+        }, 80);
+    }
+
+    // slower, occasional trigger (~every 500ms)
+    setInterval(() => {
+        if (Math.random() < 0.3) glitchOnce(); // lower chance
+    }, 1000); // check less often
+});
+</script>
+
 <!-- Home -->
-<section class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
-    <h1 class="uk-margin-xlarge-left uk-light uk-text-left uk-margin-xlarge-right">I'm John Doe, a front-end web developer, <br>graphic designer, and an UI/UX designer.</h1>
-    <a href="#about" class="uk-margin-xlarge-left uk-text-capitalize uk-button uk-button-secondary" uk-scroll>About Me</a>
+<section class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top">
+    <h1 class="uk-margin-xlarge-left uk-light uk-text-left uk-margin-xlarge-right"> Current: Software engineer, technology consultant, sailor/boat hand, and bike mechanic <br> <br> Former: Horse wrangler/ranch hand (cowboy), concrete finisher/laboror, computer science teacher, car mechanic</h1>
+    <a  href="#about" class="uk-margin-xlarge-left uk-margin-large-top uk-text-capitalize uk-button uk-button-secondary" uk-scroll>About Me</a>
 
 
 </section>
@@ -76,55 +111,84 @@
 <!-- Home Ends -->
 <br>
 
-
 <hr class="uk-margin-xlarge-top uk-margin-xlarge-left uk-margin-xlarge-right">
 
 <!-- About Me -->
-<section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
-<h3 class="uk-margin-xlarge-left uk-light">About Me</h3>
-<!-- Change here to ur paragraph -->
-<p class="uk-margin-xlarge-left uk-margin-xlarge-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eleifend posuere tortor vel lobortis. Morbi pretium in sapien non suscipit. Nam ac efficitur enim. Vestibulum accumsan erat sit amet nulla commodo, nec varius felis aliquam. Aliquam suscipit mauris lacus, at euismod purus tempor aliquam. Donec varius sem nisl. Fusce augue tortor, hendrerit at elit quis, aliquet blandit eros. Nam gravida sem velit, eu placerat nunc commodo ut. <br><br>Maecenas ultricies magna nec nisi egestas, in posuere velit tincidunt. Nam quis turpis non ligula dapibus bibendum sit amet at felis. Vestibulum ornare tempor nulla, quis sodales ex consequat vel. Morbi sollicitudin ligula eget mattis euismod. Nulla scelerisque malesuada arcu a vulputate. Phasellus ac lectus consequat, eleifend libero id, tincidunt lectus. Sed tempus gravida odio, sed semper neque aliquet imperdiet.</p>
-<a href="" class="uk-margin-xlarge-left uk-light uk-button-text" uk-icon="instagram"></a> &nbsp;<a href="" class="uk-light uk-button-text" uk-icon="dribbble"></a> &nbsp;<a href="" class="uk-button-text uk-light" uk-icon="github"></a> &nbsp;<a href="" class=" uk-light uk-button-text" uk-icon="linkedin"></a>
-
-<!-- About Me Ends -->
-
-
-
-
+<section id="about" class="uk-margin-small-left uk-margin-small-right uk-margin-medium-top uk-margin-large-bottom">
+    <h3 class="uk-margin-xlarge-left uk-light">About Me</h3>
+    <a href="https://strava.app.link/zZ4Nf2jR7Wb" class="uk-margin-xlarge-left uk-light uk-button-text" target="_blank">
+        <img src="images/icons/strava.png" alt="Strava" style="width:24px; height:24px; vertical-align: middle;">
+    </a>
+    <p class="uk-margin-xlarge-left uk-margin-xlarge-right">I recently</p>
 </section>
+<!-- About Me Ends -->
 
 <!-- Projects Section -->
 <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
-<section id="projects" class="uk-margin-small-left uk-margin-small-right uk-margin-xlarge-top uk-margin-xlarge-bottom">
+<section id="projects" class="uk-margin-small-left uk-margin-small-right uk-margin-medium-top uk-margin-small-bottom">
 <h3 class="uk-margin-xlarge-left uk-light">Projects</h3>
-<p class="uk-margin-xlarge-left">Projects that i've been working on</p>
-
+<p class="uk-margin-xlarge-left uk-margin-medium-bottom">Warning: Construction Zone</p>
 <div class="uk-margin-xlarge-left uk-margin-xlarge-right">
     <!-- Change all of this to ur projects -->
-    <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
-        <h4>Project Name</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <div class="uk-margin uk-card uk-card-secondary uk-card-body active">
+        <h4>OnlyWords</h4>
+        <p>A writing platform for writers of to write anonymously or non-anonmously and discover other writers near them</p>
         <a class="uk-button-text uk-text-decoration-none" href="">
             <span uk-icon="icon: link">
             </span> Website Link </a>
-        </div>
-        <div class="uk-margin uk-card uk-card-secondary uk-card-body ">
-            <h4>Project Name</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a class="uk-button-text uk-text-decoration-none" href="">
-                <span uk-icon="icon: link">
-                </span> Website Link </a>
-            </div></div>
+    </div>
 
+    <div class="uk-margin uk-card uk-card-secondary uk-card-body active">
+        <h4>Homeshare</h4>
+        <p>A personal wallpaper running with a live waterfall of pinned images or images shared by friends via your QR code. 
+            Let your friend know you were thinking about them</p>
+        <a class="uk-button-text uk-text-decoration-none" href="">
+            <span uk-icon="icon: link">
+            </span> Website Link </a>
+    </div>
 
+    <div class="uk-margin uk-card uk-card-secondary uk-card-body active">
+        <h4>Julia & Jess (bikes)</h4>
+        <p>A personal wallpaper running with a live waterfall of pinned images or images shared by friends via your QR code. 
+            Let your friend know you were thinking about them</p>
+        <a class="uk-button-text uk-text-decoration-none" href="">
+            <span uk-icon="icon: link">
+            </span> Website Link </a>
+    </div>
 
-    <br>
+    <div class="uk-margin uk-card uk-card-secondary uk-card-body active">
+        <h4>Fixing Boats</h4>
+        <p>Restoring wood/teak, polishing, waxing fiberglass, sailing, etc</p>
+        <a class="uk-button-text uk-text-decoration-none" href="">
+            <span uk-icon="icon: link">
+            </span> Website Link </a>
+    </div>
+
+    <div class="uk-margin uk-card uk-card-secondary uk-card-body defunct">
+        <h4>Datapops (defunct)</h4>
+        <p>Data quality assessor</p>
+        <a class="uk-button-text uk-text-decoration-none" href="">
+            <span uk-icon="icon: link">
+            </span> Website Link </a>
+    </div>
+
+    <div class="uk-margin uk-card uk-card-secondary uk-card-body defunct">
+        <h4>Coding and Coffee (defunct)</h4>
+        <p>Computer Science program to teach computer science</p>
+        <a class="uk-button-text uk-text-decoration-none" href="">
+            <span uk-icon="icon: link">
+            </span> Website Link </a>
+    </div>
+        
+</div>
 
 
 </section>
+
+<!-- Projects Section Ends -->
+
 <hr class="uk-margin-xlarge-left uk-margin-xlarge-right">
 </div>
-<!-- Projects Section Ends -->
-    
+
 </body>
 </html>
