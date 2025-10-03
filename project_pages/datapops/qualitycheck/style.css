@@ -1,0 +1,329 @@
+/* Basic styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+} 
+
+.about-link {
+    position: relative;
+    bottom: 37px;
+    right: -788px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #007bff; /* You can adjust this color */
+    margin-top: 63px;
+}
+
+.about-link:hover {
+    text-decoration: underline;
+}
+
+/* Field Types Section */
+.field-types {
+    width: 250px; /* Fixed width for the field types */
+    background-color: #f7f7f7;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    position: absolute; /* Position it outside of the flow */
+    right: 20px; /* Adjust to fit your layout */
+    top: 500px; /* Adjust vertical positioning if necessary */
+}
+
+#collapseBtn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 0px;
+}
+
+#collapseBtn:hover {
+    background-color: #0056b3;
+}
+
+#expandBtn {
+    position: absolute;
+    right: 0; /* Keep it on the right edge when collapsed */
+    top: 850px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Ensure it's always on top */
+}
+
+#expandBtn:hover {
+    background-color: #0056b3;
+}
+
+.field-types h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.draggable-field {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    text-align: center;
+    cursor: grab;
+    transition: transform 0.2s ease;
+}
+
+.draggable-field:hover {
+    transform: scale(1.05);
+}
+
+.container {
+    max-width: 900px;  /* Ensure everything stays within 900px */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-x: hidden;  /* Prevent content from spilling out horizontally */
+}
+
+/* File Upload Section */
+.upload-area {
+    border: 2px dashed #007BFF;
+    padding: 40px;
+    text-align: center;
+    color: #007BFF;
+    font-size: 1.2em;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-area:hover {
+    background-color: #e9f5ff;
+}
+
+#fileInput {
+    display: none;
+}
+
+/* Schema Detection and Field Types Section */
+.drag-drop-section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+/* Schema Section */
+.schema-section {
+    max-width: 100%; /* Ensure it fits within the parent container */
+    padding: 15px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    overflow-x: hidden; /* Prevent any overflow in the schema */
+}
+
+/* Horizontal schema container */
+.schema-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll; /* Keep schema scrollable horizontally */
+    white-space: nowrap;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%; /* Constrain the schema to the container's width */
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+.schema-container::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+    height: 6px; /* Height of the scrollbar */
+}
+
+.schema-container::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Rounded scrollbar thumb */
+}
+
+.schema-container::-webkit-scrollbar-track {
+    background-color: #f7f7f7; /* Color of the scrollbar track */
+}
+
+
+.schema-field {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: flex-start;
+    align-items: center; /* Center items horizontally */
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    min-width: 150px;
+    margin-right: 10px;
+    box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.schema-field .column-name {
+    font-weight: bold;
+    margin-bottom: 10px; /* Adds space between column name and dropzone */
+    text-align: center; /* Center the column name */
+    width: 100%; /* Ensure the column name takes full width */
+}
+
+.dropzone {
+    width: 100%; /* Make the dropzone take full width */
+    padding: 5px;
+    background-color: #e0e0e0;
+    border: 2px dashed #007BFF;
+    text-align: center;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.dropzone.dragover {
+    background-color: #d1eaff;
+}
+
+/* Adding a class to change the color of the dropzone when a field type is applied */
+.dropzone.applied {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+}
+
+/* Results Section */
+#results {
+    margin-top: 20px;
+}
+
+.horizontal-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.summary-button {
+    background-color: #e9f5ff;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    text-align: center;
+    border: none; /* Remove default button border */
+    cursor: pointer;
+}
+
+.summary-button:hover {
+    background-color: #d1eaff; /* Add hover effect for buttons */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
+}
+
+/* Additional styling for applied fields */
+.applied {
+    background-color: #007BFF; /* Same blue color as draggable elements */
+    color: white; /* Keep text color white for contrast */
+    cursor: pointer; /* Indicate that it can be interacted with */
+}
+
+.applied:hover {
+    transform: scale(1.05); /* Slightly scale up on hover */
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Scrollable Table for First Five Rows */
+.scrollable-table {
+    max-width: 100%; /* Ensure it stays within the container */
+    overflow-x: auto;
+    margin-bottom: 20px; /* Add some space below the scrollable area */
+    border: 1px solid #ddd; /* Optional: border for better visibility */
+    border-radius: 6px; /* Optional: rounded corners */
+    box-sizing: border-box; /* Ensures padding doesn't break width */
+}
+
+/* Custom scrollbar for WebKit browsers (Chrome, Safari) */
+.scrollable-table::-webkit-scrollbar {
+    width: 6px; /* Width of the scrollbar */
+    height: 6px; /* Height of the scrollbar */
+}
+
+.scrollable-table::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Rounded scrollbar thumb */
+}
+
+.scrollable-table::-webkit-scrollbar-track {
+    background-color: #f7f7f7; /* Color of the scrollbar track */
+}
+
+.table-container {
+    width: 100%; /* Allow the container to fill the modal */
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+table {
+    width: 100%; /* Table takes full width of the container */
+    border-collapse: collapse; /* Collapse borders for better styling */
+}
+
+th, td {
+    padding: 8px; /* Add some padding for better readability */
+    text-align: left; /* Align text to the left */
+}
+
+/* Ensure the table inside the scrollable area is styled */
+#firstFiveRows table {
+    width: 100%; /* Full width */
+    border-collapse: collapse;
+}
+
+#firstFiveRows th, 
+#firstFiveRows td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
