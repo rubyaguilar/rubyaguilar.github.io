@@ -187,9 +187,47 @@ paidText.addEventListener('click', () => unblurWithReset(paidText, 3, 20000)); /
 
                 <br> <br> 
                 Current Goal: Now after my time away, I have developed a goal of what I am wanting to achieve in my career; I am now pursing that. Ask me what that is, or anything on the above</p>
-             <a  href="mailto:rubenag025@gmail.com" class="uk-margin-xlarge-left uk-margin-medium-top uk-text-capitalize uk-button uk-button-secondary" uk-scroll>Ask Me Something</a>
-        
-    
+             <!-- Button -->
+                <a id="contactBtn" href="#" 
+                class="uk-margin-xlarge-left uk-margin-small-top uk-text-capitalize uk-button uk-button-secondary">
+                Ask Me Something
+                </a>
+
+                <!-- Hidden contact info -->
+                <div class="uk-margin-xlarge-left" id="contactInfo" style="display: none; opacity: 0; transition: opacity 0.5s; margin-top: 1em;">
+                    <p>Email: foobar.aguilar@gmail.com</a></p>
+                    <p>Phone: +1(737)539-5430</a></p>
+                </div>
+                <script>
+                const btn = document.getElementById('contactBtn');
+                const info = document.getElementById('contactInfo');
+
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Fade out button
+                    btn.style.transition = 'opacity 0.5s';
+                    btn.style.opacity = 0;
+
+                    // After fade, hide button and show info
+                    setTimeout(() => {
+                    btn.style.display = 'none';
+                    info.style.display = 'block';
+                    setTimeout(() => info.style.opacity = 1, 10);
+
+                    // After 10 seconds, hide info and bring button back
+                    setTimeout(() => {
+                        info.style.opacity = 0; // fade out info
+                        setTimeout(() => {
+                        info.style.display = 'none';
+                        btn.style.display = 'inline-block';
+                        setTimeout(() => btn.style.opacity = 1, 10); // fade in button
+                        }, 500); // wait for fade-out to finish
+                    }, 10000); // 10 seconds
+                    }, 500); // wait for button fade-out
+                });
+                </script>
+                        
     <div class="uk-margin-xlarge-left uk-margin-medium-top" style="display:flex; flex-direction: column; align-items: flex-start; gap:4px;">
         <div style="display:flex; gap:12px;">
             <a href="https://strava.app.link/zZ4Nf2jR7Wb" class="uk-light uk-button-text" target="_blank">
@@ -199,7 +237,7 @@ paidText.addEventListener('click', () => unblurWithReset(paidText, 3, 20000)); /
                 <img src="images/icons/spotify.png" alt="Spotify" style="width:24px; height:24px; vertical-align: middle;">
             </a>
         </div>
-        <span style="color:#ccc; font-size:0.7rem; margin-top:10px; padding-left:22.5px;">^^ closest I have to social medias</span>
+        <span style="color:#ccc; font-size:0.7rem; margin-top:15px; padding-left:22.5px;">^^ closest I have to social medias</span>
     </div>
 </section>
 <!-- About Me Ends -->
@@ -233,7 +271,7 @@ paidText.addEventListener('click', () => unblurWithReset(paidText, 3, 20000)); /
     <div class="uk-margin uk-card uk-card-secondary uk-card-body active">
         <h4>Julia & Jess</h4>
         <p>Restoring ~2000s 5500 OCLV Trek frames with ~2018 6800 Shimano Ultegra gearset, AKA old meets new. These machines 
-            are being built with speed in mind. Some cool history is these are the frames Lance Armstrong won the Tour De France on in behalf of USPS wanting to gain greater 
+            are being built with speed in mind <br> <br> Some cool history is these are the frames Lance Armstrong won the Tour De France on in behalf of USPS wanting to gain greater 
             market share and the first time Trek tried out full carbon. Julia is my bike and Jess is Fernando's
         </p>
         <a class="uk-button-text uk-text-decoration-none" href=" ">
