@@ -138,3 +138,82 @@ hr {
         right: 20px; /* smaller spacing for narrow screens */
     }
 }
+
+
+
+
+/*RESUME */ 
+/* RESUME PAGE */
+
+/* Resume container */
+.resume-container {
+  width: 100%;
+  max-width: 1050px; /* or 1100 or 1300 */
+  margin: 80px auto;
+  padding: 0 2rem; /* increase or decrease at will */
+  box-sizing: border-box;
+}
+
+/* Main name */
+.resume-name {
+  text-align: center;
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 0.1rem;
+  color: white;
+}
+
+/* Subtitle (location + links) */
+.resume-subtitle {
+  text-align: center;
+  color: #bbbbbb;
+  font-size: 0.85rem;
+  margin: 0.15rem 0;
+}
+
+/* Divider line */
+.resume-divider {
+  width: 100%;
+  border-color: rgba(255,255,255,0.10);
+  margin: 1.7rem 0;
+}
+
+/* Section titles like EXPERIENCE, EDUCATION */
+.resume-section-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 2.7rem;
+  text-transform: uppercase;
+}
+
+/* Company line (bold like screenshot) */
+.resume-role {
+  font-size: 0.93rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Position title under company */
+.resume-position {
+  margin-top: 0.2rem;
+  font-size: 0.86rem;
+  font-style: italic;
+  color: #cccccc;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Bullet list */
+.resume-bullets {
+  margin: 0.4rem 0 1rem 1.2rem;
+}
+
+.resume-bullets li {
+  font-size: 0.83rem;
+  margin-bottom: 0.25rem;
+  max-width: 95%;
+  color: #dddddd;
+}
