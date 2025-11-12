@@ -114,6 +114,12 @@ p {
     background-color: #1a1a1a;
 }
 
+/* Ensure all offcanvas nav links are bright white */
+.uk-offcanvas-bar .uk-nav a {
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
 
 
 /* FOOTER (stays bottom-left) */

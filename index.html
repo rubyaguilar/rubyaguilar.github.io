@@ -54,12 +54,25 @@
             <li class="uk-active"><a href="#about" uk-scroll>About Me</a></li>
             <li class="uk-active"><a href="#projects" uk-scroll>Projects</a></li>
             <li>
-            <a class="uk-active"
-                href="project_pages/resume.html">Resume</a>
+            <a href="project_pages/resume.html" class="uk-light">Resume</a>
             </li>
         </ul>
     </div>
 </div>
+
+<style>
+/* ✅ Force all offcanvas links white */
+#offcanvas-nav .uk-nav-primary > li > a {
+  color: white !important;
+  opacity: 1 !important;
+}
+
+/* Optional: ensure hover stays white too */
+#offcanvas-nav .uk-nav-primary > li > a:hover {
+  color: white !important;
+  opacity: 1 !important;
+}
+</style>
 
 <!-- Navigation Bar Mobile Ends -->
 
